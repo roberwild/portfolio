@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { usePortfolioWizardStore } from '@/lib/store/portfolio-wizard-store';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, ArrowRight, ArrowLeft, RotateCcw, AlertCircle } from 'lucide-react';
@@ -112,7 +112,7 @@ const PortfolioWizard: React.FC = () => {
   if (currentStep === -1) {
     return (
       <div className="flex flex-col w-full max-w-4xl mx-auto p-4 md:p-6 lg:p-8">
-        <div className="bg-white dark:bg-gray-900 shadow-sm rounded-lg p-6 md:p-8 card-enhanced border border-border transition-all duration-300 ease-in-out">
+        <div className="bg-white dark:bg-gray-900 shadow-sm rounded-lg p-6 md:p-8 card-enhanced border-auto transition-all duration-300 ease-in-out">
           {renderStep()}
         </div>
       </div>
@@ -122,7 +122,7 @@ const PortfolioWizard: React.FC = () => {
   return (
     <div className="flex flex-col w-full max-w-4xl mx-auto p-4 md:p-6 lg:p-8">
       {status === 'completed' ? (
-        <div className="text-center py-12 bg-white dark:bg-gray-900 shadow-md rounded-lg p-8 animate-fadeIn border border-green-200 dark:border-green-800">
+        <div className="text-center py-12 bg-white dark:bg-gray-900 shadow-md rounded-lg p-8 animate-fadeIn border-auto">
           <div className="flex justify-center mb-6">
             <div className="rounded-full bg-green-100 dark:bg-green-900 p-3">
               <CheckCircle2 className="h-12 w-12 text-green-600 dark:text-green-400" />
@@ -169,14 +169,14 @@ const PortfolioWizard: React.FC = () => {
           </div>
           
           {/* Barra de progreso */}
-          <div className="mb-6 bg-white dark:bg-gray-900 shadow-sm rounded-lg p-6 card-enhanced border border-border">
+          <div className="mb-6 bg-white dark:bg-gray-900 shadow-sm rounded-lg p-6 card-enhanced border-auto">
             <WizardProgress 
               currentStep={currentStep} 
               maxStepVisited={maxStepVisited}
             />
           </div>
           
-          <div className="mb-8 min-h-[450px] bg-white dark:bg-gray-900 shadow-sm rounded-lg p-6 md:p-8 card-enhanced border border-border transition-all duration-300 ease-in-out">
+          <div className="mb-8 min-h-[450px] bg-white dark:bg-gray-900 shadow-sm rounded-lg p-6 md:p-8 card-enhanced border-auto transition-all duration-300 ease-in-out">
             {renderStep()}
           </div>
           

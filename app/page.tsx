@@ -55,7 +55,7 @@ export default function HomePage() {
               </button>
               <div className="absolute left-0 top-[calc(100%+0px)] w-[350px] z-10">
                 <div className="h-[10px]"></div>
-                <div className="bg-white dark:bg-[#0E1421] border border-gray-200 dark:border-white/10 rounded-md p-6 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg">
+                <div className="bg-white dark:bg-[#0E1421] border-auto rounded-md p-6 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg">
                   <div className="flex flex-col gap-8">
                     <div>
                       <div className="p-2 -mx-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
@@ -98,7 +98,7 @@ export default function HomePage() {
               </button>
               <div className="absolute left-0 top-[calc(100%+0px)] w-[350px] z-10">
                 <div className="h-[10px]"></div>
-                <div className="bg-white dark:bg-[#0E1421] border border-gray-200 dark:border-white/10 rounded-md p-6 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg">
+                <div className="bg-white dark:bg-[#0E1421] border-auto rounded-md p-6 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg">
                   <div className="flex flex-col gap-8">
                     <div>
                       <div className="p-2 -mx-2 rounded-md hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
@@ -177,7 +177,7 @@ export default function HomePage() {
           <div className="container mx-auto max-w-[1200px] px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Card 1 */}
-              <div className="bg-gray-50 dark:bg-white/5 rounded-lg p-6 border border-gray-200 dark:border-white/10">
+              <div className="bg-gray-50 dark:bg-white/5 rounded-lg p-6 border-auto">
                 <div className="mb-6 text-[#E84D3D]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 7 12 2 3 7l9 5 9-5Z"/>
@@ -212,7 +212,7 @@ export default function HomePage() {
         </div>
         
               {/* Card 2 */}
-              <div className="bg-gray-50 dark:bg-white/5 rounded-lg p-6 border border-gray-200 dark:border-white/10">
+              <div className="bg-gray-50 dark:bg-white/5 rounded-lg p-6 border-auto">
                 <div className="mb-6 text-[#E84D3D]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M3 3v18h18"/>
@@ -245,7 +245,7 @@ export default function HomePage() {
           </div>
           
               {/* Card 3 */}
-              <div className="bg-gray-50 dark:bg-white/5 rounded-lg p-6 border border-gray-200 dark:border-white/10">
+              <div className="bg-gray-50 dark:bg-white/5 rounded-lg p-6 border-auto">
                 <div className="mb-6 text-[#E84D3D]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>

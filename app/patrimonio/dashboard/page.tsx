@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { useTheme } from 'next-themes';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 // Definir interfaces para los datos
 interface PatrimonioDataItem {
@@ -50,6 +52,7 @@ const activosDistribucion: ActivoDistribucion[] = [
 // Componente para el dashboard de patrimonio
 export default function DashboardPatrimonio() {
   const [mounted, setMounted] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -158,19 +161,20 @@ export default function DashboardPatrimonio() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0D1117] text-white">
+    <div className="min-h-screen bg-white dark:bg-[#0D1117] text-gray-800 dark:text-white">
       <div className="container mx-auto max-w-[1200px] py-8 px-4">
-        <div className="flex items-center gap-2 mb-6">
-          <Link href="/" className="text-white/70 hover:text-white flex items-center">
+        <div className="flex items-center justify-between mb-6">
+          <Link href="/" className="text-gray-600 dark:text-white/70 hover:text-black dark:hover:text-white flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
               <path d="m15 18-6-6 6-6"/>
             </svg>
             Volver al inicio
           </Link>
+          <ThemeToggle />
         </div>
         
         <motion.h1 
-          className="text-3xl font-bold mb-2"
+          className="text-3xl font-bold mb-2 text-gray-900 dark:text-white"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -180,7 +184,7 @@ export default function DashboardPatrimonio() {
         
         {/* Tabs de navegación */}
         <motion.div 
-          className="flex gap-4 mt-6 mb-8 border-b border-white/10"
+          className="flex gap-4 mt-6 mb-8 border-b border-gray-200 dark:border-white/10"
           variants={fadeIn}
           initial="hidden"
           animate="visible"
@@ -188,13 +192,13 @@ export default function DashboardPatrimonio() {
           <Link href="/patrimonio/dashboard" className="px-4 py-2 text-[#E84D3D] border-b-2 border-[#E84D3D]">
             Dashboard
           </Link>
-          <Link href="/patrimonio/activos" className="px-4 py-2 text-white/70 hover:text-white">
+          <Link href="/patrimonio/activos" className="px-4 py-2 text-gray-600 dark:text-white/70 hover:text-black dark:hover:text-white">
             Activos
           </Link>
-          <Link href="/patrimonio/analisis" className="px-4 py-2 text-white/70 hover:text-white">
+          <Link href="/patrimonio/analisis" className="px-4 py-2 text-gray-600 dark:text-white/70 hover:text-black dark:hover:text-white">
             Análisis
           </Link>
-          <Link href="/patrimonio/planificacion" className="px-4 py-2 text-white/70 hover:text-white">
+          <Link href="/patrimonio/planificacion" className="px-4 py-2 text-gray-600 dark:text-white/70 hover:text-black dark:hover:text-white">
             Planificación
           </Link>
         </motion.div>
@@ -207,17 +211,17 @@ export default function DashboardPatrimonio() {
           animate="visible"
         >
           <div>
-            <h2 className="text-2xl font-bold mb-2">Dashboard de Patrimonio</h2>
-            <p className="text-white/70">Gestión integral de todos tus activos en un solo lugar</p>
+            <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Dashboard de Patrimonio</h2>
+            <p className="text-gray-600 dark:text-white/70">Gestión integral de todos tus activos en un solo lugar</p>
           </div>
           <div className="flex gap-3 mt-4 md:mt-0">
-            <Button variant="outline" size="sm" className="border-white/20 hover:bg-white/5">
+            <Button variant="outline" size="sm" className="border-gray-200 dark:border-white/20 hover:bg-gray-100 dark:hover:bg-white/5 text-gray-700 dark:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
                 <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
               </svg>
               Filtrar
             </Button>
-            <Button variant="outline" size="sm" className="border-white/20 hover:bg-white/5">
+            <Button variant="outline" size="sm" className="border-gray-200 dark:border-white/20 hover:bg-gray-100 dark:hover:bg-white/5 text-gray-700 dark:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/>
                 <line x1="16" x2="22" y1="5" y2="5"/>
@@ -227,7 +231,7 @@ export default function DashboardPatrimonio() {
               </svg>
               Actualizar
             </Button>
-            <Button variant="outline" size="sm" className="border-white/20 hover:bg-white/5">
+            <Button variant="outline" size="sm" className="border-gray-200 dark:border-white/20 hover:bg-gray-100 dark:hover:bg-white/5 text-gray-700 dark:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="17 8 12 3 7 8"/>
@@ -249,24 +253,24 @@ export default function DashboardPatrimonio() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Widget de Resumen del Patrimonio */}
           <motion.div 
-            className="bg-[#111827]/50 rounded-lg p-6 border border-white/10 col-span-2"
+            className="bg-white dark:bg-[#111827]/50 rounded-lg p-6 border-auto shadow-sm col-span-2"
             variants={cardVariants}
             initial="hidden"
             animate="visible"
           >
-            <h3 className="text-lg font-medium mb-4">Resumen del Patrimonio</h3>
+            <h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">Resumen del Patrimonio</h3>
             <motion.div 
               className="flex flex-col"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="text-4xl font-bold mb-2">454.500 €</div>
+              <div className="text-4xl font-bold mb-2 text-gray-900 dark:text-white">454.500 €</div>
               <div className="flex items-center text-green-500">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
                   <polyline points="18 15 12 9 6 15"/>
                 </svg>
-                +1,25% <span className="text-white/50 ml-1 text-sm">último mes</span>
+                +1,25% <span className="text-gray-500 dark:text-white/50 ml-1 text-sm">último mes</span>
               </div>
             </motion.div>
             
@@ -277,26 +281,26 @@ export default function DashboardPatrimonio() {
               animate="visible"
             >
               <motion.div className="text-center" variants={itemVariant}>
-                <div className="text-white/50 mb-2 text-sm flex justify-center">
+                <div className="text-gray-500 dark:text-white/50 mb-2 text-sm flex justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
                     <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/>
                   </svg>
                   Activos
                 </div>
-                <div className="text-xl font-medium">8</div>
+                <div className="text-xl font-medium text-gray-900 dark:text-white">8</div>
               </motion.div>
               <motion.div className="text-center" variants={itemVariant}>
-                <div className="text-white/50 mb-2 text-sm flex justify-center">
+                <div className="text-gray-500 dark:text-white/50 mb-2 text-sm flex justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
                     <path d="M3 3v18h18"/>
                     <path d="m19 9-5 5-4-4-3 3"/>
                   </svg>
                   Clases
                 </div>
-                <div className="text-xl font-medium">8</div>
+                <div className="text-xl font-medium text-gray-900 dark:text-white">8</div>
               </motion.div>
               <motion.div className="text-center" variants={itemVariant}>
-                <div className="text-white/50 mb-2 text-sm flex justify-center">
+                <div className="text-gray-500 dark:text-white/50 mb-2 text-sm flex justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
                     <circle cx="12" cy="12" r="10"/>
                     <path d="m8 14 2.5-2.5"/>
@@ -305,37 +309,37 @@ export default function DashboardPatrimonio() {
                   </svg>
                   Divisas
                 </div>
-                <div className="text-xl font-medium">3</div>
+                <div className="text-xl font-medium text-gray-900 dark:text-white">3</div>
               </motion.div>
             </motion.div>
             
             <motion.div 
-              className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-white/10"
+              className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-gray-200 dark:border-white/10"
               variants={container}
               initial="hidden"
               animate="visible"
               transition={{ delayChildren: 0.3 }}
             >
               <motion.div variants={itemVariant}>
-                <div className="text-white/50 text-sm mb-1">Rentabilidad YTD</div>
-                <div className="text-green-500 text-lg font-medium">+5,43 %</div>
+                <div className="text-gray-500 dark:text-white/50 text-sm mb-1">Rentabilidad YTD</div>
+                <div className="text-green-600 dark:text-green-500 text-lg font-medium">+5,43 %</div>
               </motion.div>
               <motion.div variants={itemVariant}>
-                <div className="text-white/50 text-sm mb-1">Rentabilidad Total</div>
-                <div className="text-green-500 text-lg font-medium">+14,80 %</div>
+                <div className="text-gray-500 dark:text-white/50 text-sm mb-1">Rentabilidad Total</div>
+                <div className="text-green-600 dark:text-green-500 text-lg font-medium">+14,80 %</div>
               </motion.div>
             </motion.div>
           </motion.div>
           
           {/* Widget de Métricas de Riesgo */}
           <motion.div 
-            className="bg-[#111827]/50 rounded-lg p-6 border border-white/10"
+            className="bg-white dark:bg-[#111827]/50 rounded-lg p-6 border-auto shadow-sm"
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-lg font-medium mb-6">Métricas de Riesgo</h3>
+            <h3 className="text-lg font-medium mb-6 text-gray-900 dark:text-white">Métricas de Riesgo</h3>
             
             <motion.div 
               className="space-y-6"
@@ -345,34 +349,34 @@ export default function DashboardPatrimonio() {
             >
               <motion.div variants={itemVariant}>
                 <div className="flex justify-between mb-1">
-                  <div className="text-white/70 text-sm">Volatilidad</div>
+                  <div className="text-gray-700 dark:text-white/70 text-sm">Volatilidad</div>
                   <div className="text-[#E84D3D] text-sm font-medium">7.5% <span className="text-[#E84D3D] ml-1">↘</span></div>
                 </div>
-                <div className="text-xs text-white/50">Desviación estándar anualizada</div>
+                <div className="text-xs text-gray-500 dark:text-white/50">Desviación estándar anualizada</div>
               </motion.div>
               
               <motion.div variants={itemVariant}>
                 <div className="flex justify-between mb-1">
-                  <div className="text-white/70 text-sm">Ratio de Sharpe</div>
-                  <div className="text-green-500 text-sm font-medium">1.20 <span className="text-green-500 ml-1">↗</span></div>
+                  <div className="text-gray-700 dark:text-white/70 text-sm">Ratio de Sharpe</div>
+                  <div className="text-green-600 dark:text-green-500 text-sm font-medium">1.20 <span className="text-green-600 dark:text-green-500 ml-1">↗</span></div>
                 </div>
-                <div className="text-xs text-white/50">Rentabilidad ajustada al riesgo</div>
+                <div className="text-xs text-gray-500 dark:text-white/50">Rentabilidad ajustada al riesgo</div>
               </motion.div>
               
               <motion.div variants={itemVariant}>
                 <div className="flex justify-between mb-1">
-                  <div className="text-white/70 text-sm">Drawdown Máximo</div>
-                  <div className="text-amber-500 text-sm font-medium">12.3% <span className="text-amber-500 ml-1">→</span></div>
+                  <div className="text-gray-700 dark:text-white/70 text-sm">Drawdown Máximo</div>
+                  <div className="text-amber-600 dark:text-amber-500 text-sm font-medium">12.3% <span className="text-amber-600 dark:text-amber-500 ml-1">→</span></div>
                 </div>
-                <div className="text-xs text-white/50">Caída máxima desde máximos</div>
+                <div className="text-xs text-gray-500 dark:text-white/50">Caída máxima desde máximos</div>
               </motion.div>
               
               <motion.div variants={itemVariant}>
                 <div className="flex justify-between mb-1">
-                  <div className="text-white/70 text-sm">Beta</div>
+                  <div className="text-gray-700 dark:text-white/70 text-sm">Beta</div>
                   <div className="text-[#E84D3D] text-sm font-medium">0.85 <span className="text-[#E84D3D] ml-1">↘</span></div>
                 </div>
-                <div className="text-xs text-white/50">Correlación con el mercado</div>
+                <div className="text-xs text-gray-500 dark:text-white/50">Correlación con el mercado</div>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -382,17 +386,17 @@ export default function DashboardPatrimonio() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
           {/* Widget de Evolución del Patrimonio */}
           <motion.div 
-            className="bg-[#111827]/50 rounded-lg p-6 border border-white/10 col-span-2"
+            className="bg-white dark:bg-[#111827]/50 rounded-lg p-6 border-auto shadow-sm col-span-2"
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.3 }}
           >
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-lg font-medium">Evolución del Patrimonio</h3>
-              <div className="text-green-500 text-sm font-medium">+3.30%</div>
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white">Evolución del Patrimonio</h3>
+              <div className="text-green-600 dark:text-green-500 text-sm font-medium">+3.30%</div>
             </div>
-            <div className="text-xs text-white/50 mb-2">may 2023 - nov 2023</div>
+            <div className="text-xs text-gray-500 dark:text-white/50 mb-2">may 2023 - nov 2023</div>
             
             {/* Gráfico de evolución con SVG */}
             <motion.div 
@@ -405,28 +409,32 @@ export default function DashboardPatrimonio() {
                 {/* Líneas de cuadrícula */}
                 <motion.line 
                   x1="0" y1="30" x2="700" y2="30" 
-                  stroke="#ffffff20" strokeDasharray="2,2"
+                  stroke={theme === 'dark' ? "#ffffff20" : "#00000020"} 
+                  strokeDasharray="2,2"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.7, duration: 1 }}
                 />
                 <motion.line 
                   x1="0" y1="80" x2="700" y2="80" 
-                  stroke="#ffffff20" strokeDasharray="2,2"
+                  stroke={theme === 'dark' ? "#ffffff20" : "#00000020"} 
+                  strokeDasharray="2,2"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8, duration: 1 }}
                 />
                 <motion.line 
                   x1="0" y1="130" x2="700" y2="130" 
-                  stroke="#ffffff20" strokeDasharray="2,2"
+                  stroke={theme === 'dark' ? "#ffffff20" : "#00000020"} 
+                  strokeDasharray="2,2"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.9, duration: 1 }}
                 />
                 <motion.line 
                   x1="0" y1="180" x2="700" y2="180" 
-                  stroke="#ffffff20" strokeDasharray="2,2"
+                  stroke={theme === 'dark' ? "#ffffff20" : "#00000020"} 
+                  strokeDasharray="2,2"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1, duration: 1 }}
@@ -482,7 +490,7 @@ export default function DashboardPatrimonio() {
             
             {/* Meses (eje X) */}
             <motion.div 
-              className="flex justify-between text-xs text-white/50 mt-2"
+              className="flex justify-between text-xs text-gray-500 dark:text-white/50 mt-2"
               variants={container}
               initial="hidden"
               animate="visible"
@@ -496,13 +504,13 @@ export default function DashboardPatrimonio() {
           
           {/* Widget de Distribución de Activos */}
           <motion.div 
-            className="bg-[#111827]/50 rounded-lg p-6 border border-white/10"
+            className="bg-white dark:bg-[#111827]/50 rounded-lg p-6 border-auto shadow-sm"
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.4 }}
           >
-            <h3 className="text-lg font-medium mb-6">Distribución de Activos</h3>
+            <h3 className="text-lg font-medium mb-6 text-gray-900 dark:text-white">Distribución de Activos</h3>
             
             {/* Gráfico de distribución con SVG */}
             <motion.div 
@@ -526,7 +534,7 @@ export default function DashboardPatrimonio() {
                   {/* Círculo interior para crear efecto donut */}
                   <motion.circle 
                     cx="100" cy="100" r="40" 
-                    fill="#111827"
+                    fill={theme === 'dark' ? "#111827" : "#ffffff"}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 1.6, duration: 0.3 }}
@@ -547,9 +555,9 @@ export default function DashboardPatrimonio() {
                 <motion.div key={index} className="flex items-center justify-between" variants={itemVariant}>
                   <div className="flex items-center">
                     <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: item.color }}></div>
-                    <div className="text-sm">{item.nombre}</div>
+                    <div className="text-sm text-gray-800 dark:text-white">{item.nombre}</div>
                   </div>
-                  <div className="text-sm text-white/70">{item.porcentaje.toFixed(1)}%</div>
+                  <div className="text-sm text-gray-700 dark:text-white/70">{item.porcentaje.toFixed(1)}%</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -558,13 +566,13 @@ export default function DashboardPatrimonio() {
         
         {/* Widget de Exposición por Divisa */}
         <motion.div 
-          className="bg-[#111827]/50 rounded-lg p-6 border border-white/10 mt-6"
+          className="bg-white dark:bg-[#111827]/50 rounded-lg p-6 border-auto shadow-sm mt-6"
           variants={cardVariants}
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.5 }}
         >
-          <h3 className="text-lg font-medium mb-6">Exposición por Divisa</h3>
+          <h3 className="text-lg font-medium mb-6 text-gray-900 dark:text-white">Exposición por Divisa</h3>
           
           <motion.div 
             className="space-y-6"
@@ -577,12 +585,12 @@ export default function DashboardPatrimonio() {
             <motion.div variants={itemVariant}>
               <div className="flex justify-between items-center mb-2">
                 <div className="flex items-center">
-                  <span className="w-6 h-6 flex items-center justify-center text-sm font-medium mr-2">€</span>
-                  <span>Euro</span>
+                  <span className="w-6 h-6 flex items-center justify-center text-sm font-medium mr-2 text-gray-800 dark:text-white">€</span>
+                  <span className="text-gray-800 dark:text-white">Euro</span>
                 </div>
-                <div>420.500 €</div>
+                <div className="text-gray-800 dark:text-white">420.500 €</div>
               </div>
-              <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div className="h-2 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
                 <motion.div 
                   className="h-full bg-blue-500 rounded-full" 
                   initial={{ width: 0 }}
@@ -590,22 +598,22 @@ export default function DashboardPatrimonio() {
                   transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
                 />
               </div>
-              <div className="text-right text-xs text-white/50 mt-1">92.3%</div>
+              <div className="text-right text-xs text-gray-500 dark:text-white/50 mt-1">92.3%</div>
             </motion.div>
             
             {/* Dólar */}
             <motion.div variants={itemVariant}>
               <div className="flex justify-between items-center mb-2">
                 <div className="flex items-center">
-                  <span className="w-6 h-6 flex items-center justify-center text-sm font-medium mr-2">$</span>
+                  <span className="w-6 h-6 flex items-center justify-center text-sm font-medium mr-2 text-gray-800 dark:text-white">$</span>
                   <div>
-                    <div>Dólar</div>
-                    <div className="text-xs text-white/50">estadounidense</div>
+                    <div className="text-gray-800 dark:text-white">Dólar</div>
+                    <div className="text-xs text-gray-500 dark:text-white/50">estadounidense</div>
                   </div>
                 </div>
-                <div>25.000 US$</div>
+                <div className="text-gray-800 dark:text-white">25.000 US$</div>
               </div>
-              <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div className="h-2 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
                 <motion.div 
                   className="h-full bg-teal-400 rounded-full" 
                   initial={{ width: 0 }}
@@ -613,19 +621,19 @@ export default function DashboardPatrimonio() {
                   transition={{ delay: 1, duration: 1, ease: "easeOut" }}
                 />
               </div>
-              <div className="text-right text-xs text-white/50 mt-1">5.5%</div>
+              <div className="text-right text-xs text-gray-500 dark:text-white/50 mt-1">5.5%</div>
             </motion.div>
             
             {/* Bitcoin */}
             <motion.div variants={itemVariant}>
               <div className="flex justify-between items-center mb-2">
                 <div className="flex items-center">
-                  <span className="w-6 h-6 flex items-center justify-center text-sm font-medium mr-2">₿</span>
-                  <span>Bitcoin</span>
+                  <span className="w-6 h-6 flex items-center justify-center text-sm font-medium mr-2 text-gray-800 dark:text-white">₿</span>
+                  <span className="text-gray-800 dark:text-white">Bitcoin</span>
                 </div>
-                <div>9000 €</div>
+                <div className="text-gray-800 dark:text-white">9000 €</div>
               </div>
-              <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div className="h-2 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
                 <motion.div 
                   className="h-full bg-blue-600 rounded-full" 
                   initial={{ width: 0 }}
@@ -633,31 +641,31 @@ export default function DashboardPatrimonio() {
                   transition={{ delay: 1.2, duration: 1, ease: "easeOut" }}
                 />
               </div>
-              <div className="text-right text-xs text-white/50 mt-1">2.0%</div>
+              <div className="text-right text-xs text-gray-500 dark:text-white/50 mt-1">2.0%</div>
             </motion.div>
           </motion.div>
         </motion.div>
         
         {/* Tabla de Listado de Activos */}
         <motion.div 
-          className="bg-[#111827]/50 rounded-lg p-6 border border-white/10 mt-6"
+          className="bg-white dark:bg-[#111827]/50 rounded-lg p-6 border-auto shadow-sm mt-6"
           variants={cardVariants}
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.6 }}
         >
-          <h3 className="text-lg font-medium mb-6">Listado de Activos</h3>
+          <h3 className="text-lg font-medium mb-6 text-gray-900 dark:text-white">Listado de Activos</h3>
           
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/10">
-                  <th className="text-left pb-4 text-white/70 font-medium">Nombre</th>
-                  <th className="text-left pb-4 text-white/70 font-medium">Tipo</th>
-                  <th className="text-left pb-4 text-white/70 font-medium">Valor actual</th>
-                  <th className="text-left pb-4 text-white/70 font-medium">Valor adquisición</th>
-                  <th className="text-left pb-4 text-white/70 font-medium">Rendimiento</th>
-                  <th className="text-left pb-4 text-white/70 font-medium">Acciones</th>
+                <tr className="border-b border-gray-200 dark:border-white/10">
+                  <th className="text-left pb-4 text-gray-600 dark:text-white/70 font-medium">Nombre</th>
+                  <th className="text-left pb-4 text-gray-600 dark:text-white/70 font-medium">Tipo</th>
+                  <th className="text-left pb-4 text-gray-600 dark:text-white/70 font-medium">Valor actual</th>
+                  <th className="text-left pb-4 text-gray-600 dark:text-white/70 font-medium">Valor adquisición</th>
+                  <th className="text-left pb-4 text-gray-600 dark:text-white/70 font-medium">Rendimiento</th>
+                  <th className="text-left pb-4 text-gray-600 dark:text-white/70 font-medium">Acciones</th>
                 </tr>
               </thead>
               <motion.tbody
@@ -666,14 +674,14 @@ export default function DashboardPatrimonio() {
                 animate="visible"
                 transition={{ delayChildren: 0.8, staggerChildren: 0.1 }}
               >
-                <motion.tr className="border-b border-white/5" variants={itemVariant}>
-                  <td className="py-4">Acciones BBVA</td>
-                  <td className="py-4">Acciones</td>
-                  <td className="py-4">12.500 €</td>
-                  <td className="py-4">10.000 €</td>
-                  <td className="py-4 text-green-500">+25.00% <span className="text-green-500 ml-1">↗</span></td>
+                <motion.tr className="border-b border-gray-100 dark:border-white/5" variants={itemVariant}>
+                  <td className="py-4 text-gray-800 dark:text-white">Acciones BBVA</td>
+                  <td className="py-4 text-gray-800 dark:text-white">Acciones</td>
+                  <td className="py-4 text-gray-800 dark:text-white">12.500 €</td>
+                  <td className="py-4 text-gray-800 dark:text-white">10.000 €</td>
+                  <td className="py-4 text-green-600 dark:text-green-500">+25.00% <span className="text-green-600 dark:text-green-500 ml-1">↗</span></td>
                   <td className="py-4">
-                    <button className="text-white/50 hover:text-white">
+                    <button className="text-gray-500 dark:text-white/50 hover:text-black dark:hover:text-white">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="1"/>
                         <circle cx="19" cy="12" r="1"/>
@@ -684,14 +692,14 @@ export default function DashboardPatrimonio() {
                 </motion.tr>
                 
                 {/* Incluir el resto de las filas con la misma animación */}
-                <motion.tr className="border-b border-white/5" variants={itemVariant}>
-                  <td className="py-4">Bonos del Tesoro Español</td>
-                  <td className="py-4">Bonos</td>
-                  <td className="py-4">20.000 €</td>
-                  <td className="py-4">20.000 €</td>
-                  <td className="py-4 text-white/50">0.00% <span className="text-white/50 ml-1">→</span></td>
+                <motion.tr className="border-b border-gray-100 dark:border-white/5" variants={itemVariant}>
+                  <td className="py-4 text-gray-800 dark:text-white">Bonos del Tesoro Español</td>
+                  <td className="py-4 text-gray-800 dark:text-white">Bonos</td>
+                  <td className="py-4 text-gray-800 dark:text-white">20.000 €</td>
+                  <td className="py-4 text-gray-800 dark:text-white">20.000 €</td>
+                  <td className="py-4 text-gray-500 dark:text-white/50">0.00% <span className="text-gray-500 dark:text-white/50 ml-1">→</span></td>
                   <td className="py-4">
-                    <button className="text-white/50 hover:text-white">
+                    <button className="text-gray-500 dark:text-white/50 hover:text-black dark:hover:text-white">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="1"/>
                         <circle cx="19" cy="12" r="1"/>
@@ -702,14 +710,14 @@ export default function DashboardPatrimonio() {
                 </motion.tr>
                 
                 {/* Continuar con el resto de filas... */}
-                <motion.tr className="border-b border-white/5" variants={itemVariant}>
-                  <td className="py-4">Apartamento en Madrid</td>
-                  <td className="py-4">Inmuebles</td>
-                  <td className="py-4">350.000 €</td>
-                  <td className="py-4">300.000 €</td>
-                  <td className="py-4 text-green-500">+16.67% <span className="text-green-500 ml-1">↗</span></td>
+                <motion.tr className="border-b border-gray-100 dark:border-white/5" variants={itemVariant}>
+                  <td className="py-4 text-gray-800 dark:text-white">Apartamento en Madrid</td>
+                  <td className="py-4 text-gray-800 dark:text-white">Inmuebles</td>
+                  <td className="py-4 text-gray-800 dark:text-white">350.000 €</td>
+                  <td className="py-4 text-gray-800 dark:text-white">300.000 €</td>
+                  <td className="py-4 text-green-600 dark:text-green-500">+16.67% <span className="text-green-600 dark:text-green-500 ml-1">↗</span></td>
                   <td className="py-4">
-                    <button className="text-white/50 hover:text-white">
+                    <button className="text-gray-500 dark:text-white/50 hover:text-black dark:hover:text-white">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="1"/>
                         <circle cx="19" cy="12" r="1"/>
