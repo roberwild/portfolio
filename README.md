@@ -10,9 +10,12 @@
 - **Evaluación de riesgo**: Determina tu perfil de inversión mediante un cuestionario personalizado.
 - **Selección de empresas**: Explora y filtra empresas por sector y características para incluir en tu portfolio.
 - **Distribución de activos**: Asigna porcentajes a cada activo para equilibrar riesgo y rendimiento.
+- **Dashboard patrimonial**: Visualización completa de tu patrimonio con gráficos interactivos y animados.
+- **Métricas de riesgo**: Análisis detallado de la volatilidad, drawdown máximo, ratio de Sharpe y más.
 - **Interfaz moderna**: Construida con Next.js y diseñada con Tailwind CSS y componentes de shadcn/ui.
 - **Autenticación segura**: Gestión de usuarios mediante Supabase Auth.
 - **Base de datos en la nube**: Almacenamiento persistente con Supabase.
+- **Animaciones**: Gráficos y elementos de UI con animaciones fluidas mediante Framer Motion.
 
 ## Tecnologías
 
@@ -23,6 +26,7 @@
 - **Estado**: Zustand, React Query
 - **Formularios**: React Hook Form, Zod
 - **UI/UX**: Framer Motion, Lucide icons, tailwindcss-animate
+- **Gráficos**: SVG nativos animados con Framer Motion
 
 ## Estructura del proyecto
 
@@ -33,6 +37,11 @@ portfolio-creator/
 │   ├── auth/               # Rutas de autenticación
 │   ├── crear-portfolio/    # Página de creación de portfolios
 │   ├── portfolios/         # Página de visualización de portfolios
+│   ├── patrimonio/         # Sección de gestión patrimonial
+│   │   ├── dashboard/      # Dashboard con gráficos animados
+│   │   ├── activos/        # Gestión de activos
+│   │   ├── analisis/       # Análisis de rendimiento
+│   │   └── planificacion/  # Planificación financiera
 │   └── ...                 # Otras páginas y layouts
 ├── components/             # Componentes reutilizables
 │   ├── portfolio-wizard/   # Componentes del asistente de creación
@@ -77,6 +86,19 @@ El asistente de creación de portfolio guía a los usuarios a través de varios 
 3. **Selección de empresas**: Explora y selecciona empresas para incluir en tu portfolio.
 4. **Asignación de porcentajes**: Define cuánto invertir en cada empresa seleccionada.
 5. **Resumen y confirmación**: Revisa y confirma tu portfolio antes de guardarlo.
+
+## Dashboard de Patrimonio
+
+El Dashboard de Patrimonio ofrece una visión integral de tus activos e inversiones:
+
+1. **Resumen global**: Visualización del valor total del patrimonio y su evolución.
+2. **Distribución por activos**: Gráfico interactivo con la distribución porcentual entre diferentes clases de activos.
+3. **Exposición por divisa**: Análisis de exposición a diferentes monedas con barras de progreso animadas.
+4. **Métricas de riesgo**: Indicadores clave como volatilidad, ratio de Sharpe, drawdown máximo y beta.
+5. **Evolución temporal**: Gráfico interactivo con la evolución del patrimonio a lo largo del tiempo.
+6. **Listado de activos**: Tabla detallada con todos los activos, su valoración y rendimiento.
+
+Todas las visualizaciones incluyen animaciones fluidas que mejoran la experiencia de usuario y la comprensión de los datos, implementadas con Framer Motion y SVG nativos.
 
 ## Desarrollo
 
